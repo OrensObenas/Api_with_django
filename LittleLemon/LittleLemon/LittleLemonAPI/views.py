@@ -50,6 +50,8 @@ def single_item(request, id):
 class MenuItemsView(generics.ListCreateAPIView):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    ordering_fields = ['price', 'inventory']
+    search_fields = ['title']
     
 class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView):
     queryset = MenuItem.objects.all() # Pour afficher les elements
